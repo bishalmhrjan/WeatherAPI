@@ -60,6 +60,11 @@ public class DailyWeather {
         setMaxTemp(temp);
         return this;
     }
+    public DailyWeather getShallowCopy() {
+        DailyWeather copy = new DailyWeather();
+        copy.setId(this.getId());
 
+        return copy;
+    }
 
 }

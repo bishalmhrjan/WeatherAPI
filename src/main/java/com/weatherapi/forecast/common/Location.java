@@ -37,11 +37,21 @@ public class Location {
         return this;
     }
 
+    public Location(String cityName, String regionName, String countryName, String countryCode) {
+        this.cityName = cityName;
+        this.regionName = regionName;
+        this.countryName = countryName;
+        this.countryCode = countryCode;
+    }
 
+    @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private RealTimeWeather realtimeWeather;
 
     @OneToMany(mappedBy = "id.location", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HourlyWeather> listHourlyWeather = new ArrayList<>();
-
+    @OneToMany(mappedBy = "id.location", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DailyWeather> listDailyWeather = new ArrayList<>();
 
 
     public void copyFieldsFrom(Location another) {

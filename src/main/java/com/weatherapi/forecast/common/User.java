@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Data
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
+
 public class User implements Serializable {
 
     public static final long serialVersionUID = 1234L;
